@@ -30,8 +30,17 @@ def carregar_dados(df: pd.DataFrame, format_saida: list):
         if formato == "parquet":
             df.to_parquet("dados.parquet")
 
+# Função consolidada para chamar a pipeline
+
+def pipeline_calcular_kpi_de_vendas_consolidado(pasta: str, formato_de_saida: list):
+    data_frame = extrair_dados_e_consolidar(pasta)
+    data_frame_calculado = calcular_kpi_de_total_de_vendas(data_frame)
+    carregar_dados(data_frame_calculado, formato_de_saida)
+
+# Teste
+
 if __name__ == "__main__":
-    pasta = 'data'
+    pasta: str = 'data'
     data_frame = extrair_dados_e_consolidar(pasta)
     data_frame_calculado = calcular_kpi_de_total_de_vendas(data_frame)
     formato_saida: list = ["csv","parquet"]
