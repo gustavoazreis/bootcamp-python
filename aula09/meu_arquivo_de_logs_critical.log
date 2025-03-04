@@ -1,0 +1,122 @@
+2025-03-04T16:46:10.975323-0300 ERROR Este é um log de erro. utils_log.py
+2025-03-04T16:52:08.724927-0300 ERROR Este é um log de erro. utils_log.py
+2025-03-04T16:52:08.790696-0300 ERROR Exceção capturada em 'carregar_dados': Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet. utils_log.py
+Traceback (most recent call last):
+
+  File "C:\Users\gusta\Documents\Dev\jornadadedados\bootcamp-python\aula09\pipeline.py", line 6, in <module>
+    pipeline_calcular_kpi_de_vendas_consolidado(pasta_argumento, formato_de_saida)
+    │                                           │                └ ['csv', 'parquet']
+    │                                           └ 'data'
+    └ <function pipeline_calcular_kpi_de_vendas_consolidado at 0x0000023B8A4E9BC0>
+
+  File "C:\Users\gusta\Documents\Dev\jornadadedados\bootcamp-python\aula09\utils_log.py", line 35, in wrapper
+    result = func(*args, **kwargs)
+             │     │       └ {}
+             │     └ ('data', ['csv', 'parquet'])
+             └ <function pipeline_calcular_kpi_de_vendas_consolidado at 0x0000023B8A4E9B20>
+
+  File "C:\Users\gusta\Documents\Dev\jornadadedados\bootcamp-python\aula09\etl.py", line 42, in pipeline_calcular_kpi_de_vendas_consolidado
+    carregar_dados(data_frame_calculado, formato_de_saida)
+    │              │                     └ ['csv', 'parquet']
+    │              └             Produto    Categoria  Quantidade  Venda        Data  Total
+    │                0    Notebook Gamer  Eletrônicos           3   1500  2...
+    └ <function carregar_dados at 0x0000023B8A4D6980>
+
+> File "C:\Users\gusta\Documents\Dev\jornadadedados\bootcamp-python\aula09\utils_log.py", line 35, in wrapper
+    result = func(*args, **kwargs)
+             │     │       └ {}
+             │     └ (            Produto    Categoria  Quantidade  Venda        Data  Total
+             │       0    Notebook Gamer  Eletrônicos           3   1500  ...
+             └ <function carregar_dados at 0x0000023B8A4D65C0>
+
+  File "C:\Users\gusta\Documents\Dev\jornadadedados\bootcamp-python\aula09\etl.py", line 34, in carregar_dados
+    df.to_parquet("dados.parquet")
+    │  └ <function DataFrame.to_parquet at 0x0000023B8A001800>
+    └             Produto    Categoria  Quantidade  Venda        Data  Total
+      0    Notebook Gamer  Eletrônicos           3   1500  2...
+
+  File "C:\Users\gusta\Documents\Dev\jornadadedados\bootcamp-python\aula09\.venv\Lib\site-packages\pandas\util\_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           │     │       └ {}
+           │     └ (            Produto    Categoria  Quantidade  Venda        Data  Total
+           │       0    Notebook Gamer  Eletrônicos           3   1500  ...
+           └ <function DataFrame.to_parquet at 0x0000023B8A001760>
+  File "C:\Users\gusta\Documents\Dev\jornadadedados\bootcamp-python\aula09\.venv\Lib\site-packages\pandas\core\frame.py", line 3113, in to_parquet
+    return to_parquet(
+           └ <function to_parquet at 0x0000023B8A1A3240>
+  File "C:\Users\gusta\Documents\Dev\jornadadedados\bootcamp-python\aula09\.venv\Lib\site-packages\pandas\io\parquet.py", line 476, in to_parquet
+    impl = get_engine(engine)
+           │          └ 'auto'
+           └ <function get_engine at 0x0000023B8A1A28E0>
+  File "C:\Users\gusta\Documents\Dev\jornadadedados\bootcamp-python\aula09\.venv\Lib\site-packages\pandas\io\parquet.py", line 67, in get_engine
+    raise ImportError(
+
+ImportError: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.
+2025-03-04T16:52:08.835667-0300 ERROR Exceção capturada em 'pipeline_calcular_kpi_de_vendas_consolidado': Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet. utils_log.py
+Traceback (most recent call last):
+
+  File "C:\Users\gusta\Documents\Dev\jornadadedados\bootcamp-python\aula09\pipeline.py", line 6, in <module>
+    pipeline_calcular_kpi_de_vendas_consolidado(pasta_argumento, formato_de_saida)
+    │                                           │                └ ['csv', 'parquet']
+    │                                           └ 'data'
+    └ <function pipeline_calcular_kpi_de_vendas_consolidado at 0x0000023B8A4E9BC0>
+
+> File "C:\Users\gusta\Documents\Dev\jornadadedados\bootcamp-python\aula09\utils_log.py", line 35, in wrapper
+    result = func(*args, **kwargs)
+             │     │       └ {}
+             │     └ ('data', ['csv', 'parquet'])
+             └ <function pipeline_calcular_kpi_de_vendas_consolidado at 0x0000023B8A4E9B20>
+
+  File "C:\Users\gusta\Documents\Dev\jornadadedados\bootcamp-python\aula09\etl.py", line 42, in pipeline_calcular_kpi_de_vendas_consolidado
+    carregar_dados(data_frame_calculado, formato_de_saida)
+    │              │                     └ ['csv', 'parquet']
+    │              └             Produto    Categoria  Quantidade  Venda        Data  Total
+    │                0    Notebook Gamer  Eletrônicos           3   1500  2...
+    └ <function carregar_dados at 0x0000023B8A4D6980>
+
+  File "C:\Users\gusta\Documents\Dev\jornadadedados\bootcamp-python\aula09\utils_log.py", line 35, in wrapper
+    result = func(*args, **kwargs)
+             │     │       └ {}
+             │     └ (            Produto    Categoria  Quantidade  Venda        Data  Total
+             │       0    Notebook Gamer  Eletrônicos           3   1500  ...
+             └ <function carregar_dados at 0x0000023B8A4D65C0>
+
+  File "C:\Users\gusta\Documents\Dev\jornadadedados\bootcamp-python\aula09\etl.py", line 34, in carregar_dados
+    df.to_parquet("dados.parquet")
+    │  └ <function DataFrame.to_parquet at 0x0000023B8A001800>
+    └             Produto    Categoria  Quantidade  Venda        Data  Total
+      0    Notebook Gamer  Eletrônicos           3   1500  2...
+
+  File "C:\Users\gusta\Documents\Dev\jornadadedados\bootcamp-python\aula09\.venv\Lib\site-packages\pandas\util\_decorators.py", line 333, in wrapper
+    return func(*args, **kwargs)
+           │     │       └ {}
+           │     └ (            Produto    Categoria  Quantidade  Venda        Data  Total
+           │       0    Notebook Gamer  Eletrônicos           3   1500  ...
+           └ <function DataFrame.to_parquet at 0x0000023B8A001760>
+  File "C:\Users\gusta\Documents\Dev\jornadadedados\bootcamp-python\aula09\.venv\Lib\site-packages\pandas\core\frame.py", line 3113, in to_parquet
+    return to_parquet(
+           └ <function to_parquet at 0x0000023B8A1A3240>
+  File "C:\Users\gusta\Documents\Dev\jornadadedados\bootcamp-python\aula09\.venv\Lib\site-packages\pandas\io\parquet.py", line 476, in to_parquet
+    impl = get_engine(engine)
+           │          └ 'auto'
+           └ <function get_engine at 0x0000023B8A1A28E0>
+  File "C:\Users\gusta\Documents\Dev\jornadadedados\bootcamp-python\aula09\.venv\Lib\site-packages\pandas\io\parquet.py", line 67, in get_engine
+    raise ImportError(
+
+ImportError: Unable to find a usable engine; tried using: 'pyarrow', 'fastparquet'.
+A suitable version of pyarrow or fastparquet is required for parquet support.
+Trying to import the above resulted in these errors:
+ - Missing optional dependency 'pyarrow'. pyarrow is required for parquet support. Use pip or conda to install pyarrow.
+ - Missing optional dependency 'fastparquet'. fastparquet is required for parquet support. Use pip or conda to install fastparquet.

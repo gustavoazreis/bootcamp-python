@@ -1,9 +1,11 @@
 import pandas as pd
 import os
 import glob
+from utils_log import log_decorator
 
 # Função de Extract que lê e consolida os jsons
 
+@log_decorator
 def extrair_dados_e_consolidar(path: str) -> pd.DataFrame:
     arquivos_json = glob.glob(os.path.join(path,'*.json'))
     df_list = [pd.read_json(arquivo) for arquivo in arquivos_json]
@@ -12,13 +14,14 @@ def extrair_dados_e_consolidar(path: str) -> pd.DataFrame:
 
 # Função que transforma
 
+@log_decorator
 def calcular_kpi_de_total_de_vendas(df: pd.DataFrame) -> pd.DataFrame:
     df["Total"] = df["Quantidade"] * df["Venda"]
     return df
 
 # Função que da load em csv ou parquet
 
-
+@log_decorator
 def carregar_dados(df: pd.DataFrame, format_saida: list):
     """
     Parametro que vai ser ou "csv" ou "parquet" ou "os dois"
@@ -32,6 +35,7 @@ def carregar_dados(df: pd.DataFrame, format_saida: list):
 
 # Função consolidada para chamar a pipeline
 
+@log_decorator
 def pipeline_calcular_kpi_de_vendas_consolidado(pasta: str, formato_de_saida: list):
     data_frame = extrair_dados_e_consolidar(pasta)
     data_frame_calculado = calcular_kpi_de_total_de_vendas(data_frame)
